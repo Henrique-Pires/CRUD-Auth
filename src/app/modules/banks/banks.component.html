@@ -11,9 +11,9 @@
         (keyup)="filterBanks($event)"
       />
     </div>
-    <div class="col-4 d-flex gap-2 align-items-center justify-content-end">
-      <button class="btn btn-primary" *ngIf="userRoles.includes('ROLE_BANCO_ADD')" [routerLink]="'/banks/newBank/createBank'">Novo</button>
-      <button class="btn btn-danger"  *ngIf="userRoles.includes('ROLE_BANCO_DEL')"  (click)="deleteBanks()">Excluir</button>
+    <div class="col-4 d-flex gap-2 align-items-center justify-content-end" *ngIf="userRoles == 'AVA_DEV_ADMIN'">
+      <button class="btn btn-primary" *ngIf="!userRoles.includes('ROLE_BANCO_ADD')" [routerLink]="'/banks/newBank/createBank'">Novo</button>
+      <button class="btn btn-danger"  *ngIf="!userRoles.includes('ROLE_BANCO_DEL')"  (click)="deleteBanks()">Excluir</button>
     </div>
   </div>
 
